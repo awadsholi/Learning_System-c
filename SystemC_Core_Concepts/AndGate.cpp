@@ -1,5 +1,4 @@
 #include <systemc.h>
-using namespace sc_core;
 
 SC_MODULE(AndGate) {
     sc_in<bool> a, b;
@@ -22,20 +21,18 @@ SC_MODULE(Testbench) {
     void test() {
         a.write(false);
         b.write(false);
-        wait(1, SC_NS);
-        std::cout << "a: " << a.read() << ", b: " << b.read() << ", result: " << result.read() << std::endl;
+        sc_start(1, SC_NS);
+        std::cout << "Result: " << result.read() << std::endl;
 
         a.write(true);
         b.write(false);
-        wait(1, SC_NS);
-        std::cout << "a: " << a.read() << ", b: " << b.read() << ", result: " << result.read() << std::endl;
+        sc_start(1, SC_NS);
+        std::cout << "Result: " << result.read() << std::endl;
 
         a.write(true);
         b.write(true);
-        wait(1, SC_NS);
-        std::cout << "a: " << a.read() << ", b: " << b.read() << ", result: " << result.read() << std::endl;
-
-        sc_stop(); 
+        sc_start(1, SC_NS);
+        std::cout << "Result: " << result.read() << std::endl;
     }
 
     SC_CTOR(Testbench)
@@ -50,6 +47,6 @@ SC_MODULE(Testbench) {
 
 int sc_main(int argc, char* argv[]) {
     Testbench tb("Testbench");
-    sc_start(); 
+    sc_start();
     return 0;
 }
