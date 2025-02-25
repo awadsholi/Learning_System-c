@@ -1,3 +1,13 @@
+
+
+/*
+
+    SC_METHOD USES FOR THE COMBINATIONAL EXECUTION (INSTENEOUSLY)
+
+*/
+
+
+
 #include <systemc.h>
 
 
