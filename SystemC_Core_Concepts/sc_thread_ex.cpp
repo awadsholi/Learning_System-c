@@ -1,23 +1,34 @@
-#include <systemc.h>
+
+    /*
+    
+    
+        THREAD USES FOR SEQUENTIAL EXECUTION 
+    
+    
+    
+    
+    */
 
 
-SC_MODULE(MethodExample){
-    sc_signal<int> signal_a;                                 // Signal declaration
-    void process_method(){                                   // Process method
-        cout << "Process method called " << signal_a.read()<< endl;
+    #include <systemc.h>
 
+    SC_MODULE(ThreadExample) {
+        void thread_process() {
+            while (true) {
+                cout << "SC_THREAD running!" << endl;
+                wait(2, SC_NS); // Wait for 2 nanoseconds
+            }
+        }
+    
+        SC_CTOR(ThreadExample) {
+            SC_THREAD(thread_process); // Register SC_THREAD
+        }
+    };
+    
+    int sc_main(int argc, char* argv[]) {
+        ThreadExample module("Thread_Example");
+    
+        sc_start(10, SC_NS); // Run simulation for 10 ns
+        return 0;
     }
-
-    SC_CTOR(MethodExample){
-        SC_METHOD(process_method);                             //Executes (instanteously) when a signal or event changes
-        sensitive << signal_a;                                 // Trigger to signal_a change
-    }
-};
-
-
-int sc_main(int argc, char* argv[]){
-    MethodExample module("Method_Example");
-    module.signal_a.write(10);                                  // call the process method
-    sc_start();
-    return 0;
-}
+    
