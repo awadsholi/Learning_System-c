@@ -2,7 +2,7 @@
     /*
     
     
-        THREAD USES FOR SEQUENTIAL EXECUTION 
+        THREAD USES FOR SEQUENTIAL EXECUTION (ASYNCRONOUS)
     
     
     
