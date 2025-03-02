@@ -2,6 +2,6 @@
 
 **Important Breifly Notes
 **
-![image](https://github.com/user-attachments/assets/04495f8a-794c-4294-8c79-bfad2d2db1c6)
+![image](https://github.com/user-attachments/assets/e6de5f3a-707a-4fd3-9831-82c628eadff3)
 
 FSM -----------> FINITE STATE MACHINE 
