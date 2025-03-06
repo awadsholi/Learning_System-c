@@ -1,6 +1,5 @@
 #include <systemc.h>
-#include "AndGate.cpp"
-#include "XorGate.cpp"
+#include "modules.h"
 
 SC_MODULE(HalfAdder){
 
